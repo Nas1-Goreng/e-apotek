@@ -78,3 +78,4 @@ Sistem informasi apotek digital: stok obat, resep dokter, kasir, nota cetak, per
 
 - Logo: sementara teks "E-Apotek" dengan ikon kapsul. Ganti di `frontend/src/components/Shell.jsx` dan `pages/Login.jsx` jika sudah ada logo.
 - Alamat dan telepon apotek di nota: kosong sampai diisi di `config.php`.
+# e-apotek
