@@ -8,6 +8,16 @@ final class Auth
     public static function start(): void
     {
         session_name('eapotek_sid');
+        $savePath = session_save_path();
+        if ($savePath === '' || !is_dir($savePath) || !is_writable($savePath)) {
+            $savePath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'e-apotek-sessions';
+            if (!is_dir($savePath) && !mkdir($savePath, 0700, true) && !is_dir($savePath)) {
+                throw new RuntimeException('Unable to create the PHP session directory.');
+            }
+            if (!is_writable($savePath) || session_save_path($savePath) === false) {
+                throw new RuntimeException('The PHP session directory is not writable.');
+            }
+        }
         session_set_cookie_params([
             'lifetime' => 0,
             'path' => '/',

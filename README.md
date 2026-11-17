@@ -24,21 +24,14 @@ Sistem informasi apotek digital: stok obat, resep dokter, kasir, nota cetak, per
    ```
 
    Perintah pertama mengganti kata sandi `admin`. Perintah kedua membuat akun apoteker baru. Kata sandi diketik di prompt dan disimpan sebagai hash (`password_hash`).
-3. Jalankan backend. Jika MySQL memakai kata sandi atau pengguna selain `root` tanpa sandi, set variabel `DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `DB_NAME` lebih dulu.
-
-   ```
-   cd backend/public
-   php -S 127.0.0.1:8000 router.php
-   ```
-4. Jalankan frontend di terminal lain:
+3. Jika MySQL memakai kata sandi atau pengguna selain `root` tanpa sandi, atur variabel `DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `DB_NAME` lebih dulu. Pastikan dependensi frontend sudah terpasang (`cd frontend` lalu `npm install`).
 
    ```
    cd frontend
-   npm install
    npm run dev
    ```
 
-   Buka http://localhost:5173. Permintaan `/api` diteruskan ke server PHP.
+   Perintah ini menjalankan backend PHP dan frontend Vite sekaligus di terminal yang sama. Buka `http://127.0.0.1:8811`; tekan `Ctrl+C` untuk menghentikan keduanya. Port frontend 8811 menghindari konflik dengan situs EnvKit `e-apotek1234.test` yang memakai 5172; backend memakai port 8000. Permintaan `/api` diteruskan ke backend PHP.
 
 ## Pengaturan
 
